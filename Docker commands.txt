@@ -1,0 +1,23 @@
+Docker
+------
+sudo yum update -y
+sudo yum install -y docker git
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker ec2-user
+sudo docker version
+
+sudo docker container run -d nginx
+sudo docker ps -a
+sudo docker container run -p 80:80 -d nginx
+
+sudo docker container run -d --name myjenkins -p 80:8080 jenkins/jenkins
+sudo docker ps -a   
+
+52 git clone https://github.com/ramkrishnareddy24/mywebsite-docker.git
+   53  ls
+   54  cd mywebsite-docker
+   55  sudo docker build -t mywebsite .
+   56  sudo docker stop myjenkins
+   57  sudo docker rm myjenkins
+   58  sudo docker run -p 80:80 -d mywebsite
